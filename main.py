@@ -22,19 +22,17 @@
 
 import os
 import sys
-import time
-import socket
 import json
 import cv2
-
 import logging as log
 import paho.mqtt.client as mqtt
 import utils
-
+import time
+import socket
 from argparse import ArgumentParser
 from inference import Network
 
-# MQTT server environment variables
+# Here are the MQTT server environment variables that are needed 
 HOSTNAME = socket.gethostname()
 IPADDRESS = socket.gethostbyname(HOSTNAME)
 MQTT_HOST = IPADDRESS
@@ -71,6 +69,7 @@ def build_argparser():
 
 def connect_mqtt():
     ### TODO: Connect to the MQTT client ###
+
     client = mqtt.Client()
     client.connect(MQTT_HOST, MQTT_PORT, MQTT_KEEPALIVE_INTERVAL)
 
@@ -86,8 +85,10 @@ def infer_on_stream(args, client):
     :param client: MQTT client
     :return: None
     """
+
     # Initialise the class
     infer_network = Network()
+
     # Set Probability threshold for detections
     prob_threshold = args.prob_threshold
 
@@ -266,6 +267,7 @@ def infer_on_stream(args, client):
 
             
             ### TODO: Send the frame to the FFMPEG server ###
+
             if not webcamera:
                 sys.stdout.buffer.write(frame)
             else:
@@ -309,10 +311,12 @@ def main():
 
     :return: None
     """
-    # Grab command line args
+    # Now Grab command line args
     args = build_argparser().parse_args()
-    # Connect to the MQTT server
+
+    # Then Connect to the MQTT server
     client = connect_mqtt()
+
     # Perform inference on the input stream
     infer_on_stream(args, client)
 
