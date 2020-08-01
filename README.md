@@ -40,7 +40,7 @@ You will choose a model to use and convert it with the Model Optimizer.
 
 ### Install Intel® Distribution of OpenVINO™ toolkit
 
-Refer to https://software.intel.com/en-us/articles/Open VINO-Install-Linux for more information how to go about the installation and set up the Intel® Distribution of OpenVINO toolkit.
+Refer to https://software.intel.com/en-us/articles/OpenVINO-Install-Linux  for more information how to go about the installation and set up the Intel® Distribution of OpenVINO toolkit.
 
 
 Utilize the classroom workspace, or refer to the relevant instructions for your operating system for this step.
