@@ -91,7 +91,7 @@ def draw_text(frame,
         img: Image with required text drawn.
     """
 
-    #assert len(results_bb) == len(texts), "Number of bounding boxes ({}) not the same as number of texts ({})".format([len(results_bb), len(texts)])
+    # assert len(results_bb) == len(texts), "Number of bounding boxes ({}) not the same as number of texts ({})".format([len(results_bb), len(texts)])
     
     h = frame.shape[0]
     w = frame.shape[1]
