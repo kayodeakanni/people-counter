@@ -24,6 +24,7 @@
 
 import os
 import sys
+
 import logging as log
 from openvino.inference_engine import IENetwork, IECore
 
@@ -44,11 +45,11 @@ class Network:
 
     def load_model(self, model, device, cpu_extension=None, plugin=None):
         
-        # Obtain model files path:
+        # Fetch the model files path:
         model_xml = model
         model_bin = os.path.splitext(model_xml)[0] + ".bin"
 
-        ### TODO: Load the model ### Set a self.plugin variable with IECore in case there is no plugin passed.
+        ### TODO: Let us load the model, and set a self.plugin variable with IECore in case there is no plugin passed.
         if not plugin:
             log.info("Initializing plugin for {} device...".format(device))
             self.plugin = IECore()
@@ -77,7 +78,7 @@ class Network:
                           " that support required model layers or try, in last case, with other model")
                 sys.exit(1)
 
-        # Load the model to the network:
+        # Let us load the model to the network:
         self.net_plugin = self.plugin.load_network(network=self.net, device_name=device)
 
         # Obtain other relevant information:
@@ -85,6 +86,7 @@ class Network:
         self.out_blob = next(iter(self.net.outputs))
 
         ### TODO: Return the loaded inference plugin ###
+
         ### Note: You may need to update the function parameters. ###
         return self.plugin
 
