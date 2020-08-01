@@ -1,3 +1,4 @@
+# People Counter App project
 # Deploy a People Counter App at the Edge
 
 | Details            |              |
@@ -8,11 +9,11 @@
 
 ## What it Does
 
-The people counter application will demonstrate how to create a smart video IoT solution using Intel® hardware and software tools. The app will detect people in a designated area, providing the number of people in the frame, average duration of people in frame, and total count.
+The people counter application will demonstrate how to create a smart video IoT solution using Intel® hardware and software tools.The app detects people,get statistics like duration and total counts. The app will detect people in a designated area, providing the number of people in the frame, average duration of people in frame, and total count.
 
 ## How it Works
 
-The counter will use the Inference Engine included in the Intel® Distribution of OpenVINO™ Toolkit. The model used should be able to identify people in a video frame. The app should count the number of people in the current frame, the duration that a person is in the frame (time elapsed between entering and exiting a frame) and the total count of people. It then sends the data to a local web server using the Paho MQTT Python package.
+The counter will use the Inference Engine included in the Intel® Distribution of OpenVINO™ Toolkit and also the Intel® Deep Learning Deployment Toolkit. The model used should be able to identify people in a video frame. A pre- trained SSD Model detect people within an area designated, count the number of people in the current frame, the duration that a person is in the frame (time elapsed between entering and exiting a frame) and the total count of people. It then sends the data to a local web server using the Paho MQTT Python package.
 
 You will choose a model to use and convert it with the Model Optimizer.
 
@@ -39,6 +40,9 @@ You will choose a model to use and convert it with the Model Optimizer.
 
 ### Install Intel® Distribution of OpenVINO™ toolkit
 
+Refer to https://software.intel.com/en-us/articles/Open VINO-Install-Linux for more information how to go about the installation and set up the Intel® Distribution of OpenVINO toolkit.
+
+
 Utilize the classroom workspace, or refer to the relevant instructions for your operating system for this step.
 
 - [Linux/Ubuntu](./linux-setup.md)
@@ -64,11 +68,7 @@ There are three components that need to be running in separate terminals for thi
 From the main directory:
 
 * For MQTT/Mosca server:
-   ```
-   cd webservice/server
-   npm install
-   ```
-
+  
 * For Web server:
   ```
   cd ../ui
@@ -81,7 +81,11 @@ From the main directory:
    npm cache clean
    npm config set registry "http://registry.npmjs.org"
    npm install
+    ```
+   cd webservice/server
+   npm install
    ```
+
 
 ## What model to use
 
